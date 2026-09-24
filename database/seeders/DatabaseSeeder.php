@@ -2,24 +2,42 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Siswa;
+use App\Models\Kategori;
 
 class DatabaseSeeder extends Seeder
 {
-    use WithoutModelEvents;
-
     /**
      * Seed the application's database.
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        // Membuat data master Kategori
+        Kategori::create([
+            'id_kategori' => 1,
+            'ket_kategori' => 'Fasilitas'
         ]);
+        Kategori::create([
+            'id_kategori' => 2,
+            'ket_kategori' => 'Kebersihan'
+        ]);
+        Kategori::create([
+            'id_kategori' => 3,
+            'ket_kategori' => 'Keamanan'
+        ]);
+
+        // Membuat data master Siswa (menggunakan NIS 123123 yang kamu pakai sebelumnya)
+        Siswa::create([
+            'nis' => 123123,
+            'kelas' => 'XII RPL'
+        ]);
+    
+        \App\Models\Admin::create([
+            'username' => 'admin',
+            'password' => 'admin123'
+        ]);
+
     }
+    
 }
