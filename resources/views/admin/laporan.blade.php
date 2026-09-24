@@ -92,12 +92,12 @@
                                         @csrf
                                         <div class="flex gap-2">
                                             <select name="status" required class="block w-28 rounded-lg border-gray-200 bg-gray-50 text-sm text-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 hover:bg-white hover:border-gray-300 transition-all cursor-pointer border p-2 outline-none">
-                                                <option value="Menunggu" {{ $aduan->aspirasi->status == 'Menunggu' ? 'selected' : '' }}>Menunggu</option>
-                                                <option value="Proses" {{ $aduan->aspirasi->status == 'Proses' ? 'selected' : '' }}>Proses</option>
-                                                <option value="Selesai" {{ $aduan->aspirasi->status == 'Selesai' ? 'selected' : '' }}>Selesai</option>
-                                            </select>
-                                            <input type="number" name="feedback" value="{{ $aduan->aspirasi->feedback ?? '' }}" placeholder="Skor" required class="block w-20 rounded-lg border-gray-200 bg-gray-50 text-sm text-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 hover:bg-white hover:border-gray-300 transition-all border p-2 outline-none text-center">
-                                        </div>
+                                            <option value="Menunggu" {{ optional($aduan->aspirasi)->status == 'Menunggu' ? 'selected' : '' }}>Menunggu</option>
+                                            <option value="Proses" {{ optional($aduan->aspirasi)->status == 'Proses' ? 'selected' : '' }}>Proses</option>
+                                            <option value="Selesai" {{ optional($aduan->aspirasi)->status == 'Selesai' ? 'selected' : '' }}>Selesai</option>
+                                        </select>
+                                        <input type="number" name="feedback" value="{{ optional($aduan->aspirasi)->feedback ?? '' }}" placeholder="Skor" required class="block w-20 rounded-lg border-gray-200 bg-gray-50 text-sm text-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 hover:bg-white hover:border-gray-300 transition-all border p-2 outline-none text-center">
+                                    </div>
                                         <button type="submit" class="w-full sm:w-auto inline-flex justify-center items-center rounded-lg bg-blue-600 px-5 py-2 text-sm font-medium text-white hover:bg-blue-700 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
                                             Simpan
                                         </button>
